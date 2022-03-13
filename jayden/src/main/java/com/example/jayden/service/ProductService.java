@@ -45,10 +45,9 @@ public class ProductService {
                 .flatMap(this::mergeWithReview);
     }
 
-    public Mono<ServerResponse> deleteProduct(Integer id) {
+    public Mono<Boolean> deleteProduct(Integer id) {
         return productRepository.deleteById(id)
-                .then(reviewRepository.deleteReviewByProductId(id))
-                .then(ServerResponse.noContent().build());
+                .then(reviewRepository.deleteReviewByProductId(id));
     }
 
     private Mono<ProductDto> mergeWithReview(Product product){

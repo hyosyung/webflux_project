@@ -38,7 +38,7 @@ public class ProductController {
 
     @DeleteMapping("/product/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public Mono<ServerResponse> deleteProduct(@PathVariable Integer id){
+    public Mono<Boolean> deleteProduct(@PathVariable Integer id){
         return productService.deleteProduct(id);
     }
 }

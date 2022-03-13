@@ -22,7 +22,7 @@ public class ReviewController {
 
     @DeleteMapping("/product/{productId}/review/{reviewId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public Mono<ServerResponse> deleteReview(@PathVariable Integer productId, @PathVariable Integer reviewId) {
+    public Mono<Boolean> deleteReview(@PathVariable Integer productId, @PathVariable Integer reviewId) {
         return reviewService.deleteReview(productId, reviewId);
     }
 }

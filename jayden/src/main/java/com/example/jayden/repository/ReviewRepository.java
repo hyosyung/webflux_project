@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 public interface ReviewRepository extends ReactiveCrudRepository<Review, Integer> {
     Flux<Review> findReviewByProductId(Integer productId);
 
-    Mono<Void> deleteReviewByProductId(Integer productId);
+    Mono<Boolean> deleteReviewByProductId(Integer productId);
 
-    Flux<Void> deleteReviewByProductIdAndId(Integer productId, Integer reviewId);
+    Mono<Boolean> deleteReviewByProductIdAndId(Integer productId, Integer reviewId);
 }

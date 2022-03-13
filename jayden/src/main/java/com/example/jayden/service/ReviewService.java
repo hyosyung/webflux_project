@@ -23,8 +23,8 @@ public class ReviewService {
                 .flatMap(this::mergeWithProduct);
     }
 
-    public Mono<ServerResponse> deleteReview(Integer productId, Integer reviewId) {
-        return reviewRepository.deleteReviewByProductIdAndId(productId, reviewId).then(ServerResponse.noContent().build());
+    public Mono<Boolean> deleteReview(Integer productId, Integer reviewId) {
+        return reviewRepository.deleteReviewByProductIdAndId(productId, reviewId);
     }
 
     private Mono<ReviewWithProductDto> mergeWithProduct(Review review) {
