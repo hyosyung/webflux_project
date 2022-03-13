@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS product (
+    id BIGINT AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL,
+    price BIGINT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS review(
+    id BIGINT AUTO_INCREMENT,
+    content VARCHAR(50),
+    product_id BIGINT NOT NULL,
+    PRIMARY KEY (id)
+);
